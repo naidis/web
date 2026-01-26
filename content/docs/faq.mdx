@@ -1,0 +1,98 @@
+---
+title: FAQ
+description: Frequently Asked Questions
+---
+
+# FAQ
+
+## General
+
+### What is Naidis?
+
+Naidis is a unified Command Palette for Obsidian. It integrates Web Clipper, YouTube Transcript, AI Chat, RSS Reader, and more into a single interface.
+
+### How much does it cost?
+
+It is a $29 one-time payment. It is not a subscription; buy it once and use it forever.
+
+### Are refunds possible?
+
+Refunds are possible within 14 days of purchase for any reason.
+
+### Why is Core open source?
+
+For technical trust. Since the engine is open source, security verification is possible, and the community can continue even if the project is discontinued.
+
+## Technical
+
+### Where is data stored?
+
+All data is stored locally. There is no cloud synchronization.
+
+### Is an internet connection required?
+
+Internet is required for YouTube transcript extraction, Web Clipping, and External Sync. AI Chat and PDF processing work offline.
+
+### Which AI model is used?
+
+It uses a local LLM (via Ollama). The default model is llama3.2, which can be changed in Settings.
+
+### Why use Rust?
+
+To overcome the performance limitations of JavaScript plugins. Rust performs tasks like PDF processing and embedding generation at native speeds.
+
+## Compatibility
+
+### Which operating systems are supported?
+
+Supports macOS, Windows, and Linux.
+
+### What are the Obsidian version requirements?
+
+Obsidian 1.4.0 or higher is required.
+
+### Can I use it on mobile?
+
+Currently, mobile is not supported. It is desktop-only.
+
+## Troubleshooting
+
+### Core does not start
+
+Press the "Check for Updates" button in Settings → Naidis → "Check for Updates" to re-download Core.
+
+### AI is not responding
+
+1. Check if Ollama is installed
+2. Check if the model exists with `ollama list`
+3. If the model is missing, download it with `ollama pull llama3.2`
+
+### YouTube extraction fails
+
+1. Check if `yt-dlp` is installed
+2. Check the version with `yt-dlp --version`
+3. Update with `yt-dlp -U`
+
+### PDF OCR is not working
+
+1. Check if Tesseract is installed
+2. Check the version with `tesseract --version`
+3. Check if the necessary language packs are installed
+
+## Others
+
+### How many devices can I use the license on?
+
+A personal license can be used on all devices owned by one person.
+
+### Is there a team license?
+
+Yes, a 5-person team license is provided for $99.
+
+### How do I request features?
+
+Please open a Feature Request on GitHub Issues.
+
+### How do I report bugs?
+
+Please open a Bug Report on GitHub Issues. Include reproduction steps and environment information.

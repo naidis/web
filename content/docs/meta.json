@@ -1,0 +1,15 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "installation",
+    "---Modules---",
+    "modules",
+    "---Reference---",
+    "api-reference",
+    "faq",
+    "---Background---",
+    "prd",
+    "design-system"
+  ]
+}

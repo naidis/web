@@ -1,0 +1,88 @@
+---
+title: External Sync
+description: Wallabag, Hoarder, Readwise integration
+---
+
+# External Sync Module
+
+Synchronizes content saved in external services (Wallabag, Hoarder/Karakeep, Readwise) with Obsidian.
+
+## Supported Services
+
+### Wallabag
+
+An open-source read-it-later app.
+
+**Required Settings:**
+- Wallabag URL (e.g., `https://app.wallabag.it`)
+- Client ID
+- Client Secret
+- Username
+- Password
+
+### Hoarder (Karakeep)
+
+A bookmark management app.
+
+**Required Settings:**
+- Hoarder URL
+- API Key
+
+### Readwise
+
+A highlight management service.
+
+**Required Settings:**
+- API Key (issued in Readwise settings)
+
+## Usage
+
+1. Configure each service in Settings → Naidis
+2. Open the Command Palette with `Cmd+Shift+P`
+3. Select "Sync Wallabag" / "Sync Hoarder" / "Sync Readwise"
+4. Click "Start Sync"
+5. Select items or click "Save All"
+
+## How to Configure Wallabag
+
+1. Log in to Wallabag
+2. Settings → API Client Management
+3. Create a new client
+4. Copy Client ID and Client Secret
+5. Enter them in Naidis settings
+
+## How to Issue Hoarder API Key
+
+1. Log in to Hoarder/Karakeep
+2. Settings → API Keys
+3. Create a new API Key
+4. Copy the key and enter it in Naidis settings
+
+## How to Issue Readwise API Key
+
+1. Visit https://readwise.io/access_token
+2. Click "Get Access Token"
+3. Copy the token and enter it in Naidis settings
+
+## Synchronized Content
+
+### Wallabag
+- Saved articles
+- Read status
+- Starred status
+
+### Hoarder
+- Bookmarks
+- Tags
+- Notes
+
+### Readwise
+- Highlights (grouped by book/article)
+- Notes
+- Tags
+
+## Tips
+
+- Synchronization is manual only (no automatic sync)
+- Already saved items are not overwritten (prevents duplicates)
+- There may be API usage limits

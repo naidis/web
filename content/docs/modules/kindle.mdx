@@ -1,0 +1,66 @@
+---
+title: Kindle Sync
+description: Import highlights from your Kindle device
+---
+
+# Kindle Sync
+
+Import all your Kindle highlights directly into Obsidian by syncing your "My Clippings.txt" file.
+
+## How It Works
+
+When you highlight text on your Kindle, it saves to a file called "My Clippings.txt" on the device. Naidis parses this file and extracts all your highlights, organized by book.
+
+## Usage
+
+1. Connect your Kindle to your computer via USB
+2. Navigate to `Kindle/documents/My Clippings.txt`
+3. Open Command Palette → "Kindle: Sync Highlights"
+4. Select your `My Clippings.txt` file
+5. Highlights are imported and ready for review
+
+## What Gets Imported
+
+For each highlight, Naidis extracts:
+
+| Field | Description |
+|-------|-------------|
+| **Book Title** | Full title of the book |
+| **Author** | Author name (if available) |
+| **Highlight Text** | The actual highlighted passage |
+| **Notes** | Any notes you added to the highlight |
+| **Location** | Kindle location number |
+| **Page** | Page number (if available) |
+| **Date** | When you created the highlight |
+
+## Organizing Highlights
+
+After import, highlights are:
+
+1. **Grouped by book** - All highlights from the same book together
+2. **Registered for Spaced Repetition** - Automatically added to your daily review queue
+3. **Searchable** - Full-text search across all highlights
+
+## Integration with Spaced Repetition
+
+Imported Kindle highlights automatically integrate with the Spaced Repetition system:
+
+- Highlights appear in Daily Review
+- You can Keep, Discard, or create Mastery Cards
+- Review scheduling follows your chosen algorithm (SM-2 or Half-life)
+
+## Comparison with Readwise
+
+| Feature | Readwise | Naidis |
+|---------|----------|--------|
+| Kindle Sync | ✅ (cloud) | ✅ (local file) |
+| Automatic Sync | ✅ | Manual |
+| Cloud Storage | ✅ | ❌ (local-first) |
+| Cost | $9.99/month | $29 one-time |
+| Other Sources | Many | Coming soon |
+
+## Tips
+
+- **Regular sync**: Connect your Kindle periodically to capture new highlights
+- **Backup your clippings**: Copy `My Clippings.txt` to your vault for safekeeping
+- **Large files**: Files with thousands of highlights may take a few seconds to parse

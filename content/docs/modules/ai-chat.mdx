@@ -1,0 +1,66 @@
+---
+title: AI Chat
+description: Note-based AI chat (RAG)
+---
+
+# AI Chat Module
+
+Chat with AI based on your vault's notes. Uses RAG (Retrieval-Augmented Generation) to automatically find relevant notes and provide them as context.
+
+## Usage
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "AI Chat"
+3. Enter your question
+4. Click Enter or "Send"
+
+## Features
+
+### RAG (Retrieval-Augmented Generation)
+
+When you enter a question:
+1. Converts the question into an embedding vector
+2. Searches for semantically similar notes in the Vault
+3. Passes relevant notes as context to the LLM
+4. LLM generates a response based on the context
+
+### Visual RAG - Display Sources
+
+Referenced notes are displayed as links under the AI response. Click to go to that specific note.
+
+### Local Processing
+
+All processing occurs locally. Data is not sent externally.
+
+## Vault Indexing
+
+You must index your Vault before using AI Chat:
+
+1. Settings → Naidis → AI
+2. Click "Index Now"
+3. Wait for indexing to complete (time varies by number of notes)
+
+Re-index after adding new notes.
+
+## Requirements
+
+### Ollama (Recommended)
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull llama3.2
+```
+
+### Changing Models
+
+You can change the model to be used in Settings → Naidis → AI:
+- `llama3.2` (Default, lightweight)
+- `llama3.1` (More powerful)
+- `mistral`
+- Other Ollama-supported models
+
+## Tips
+
+- More specific questions lead to more accurate answers
+- Questions like "Summarize meeting minutes related to Project X" are effective
+- The first question after indexing may take time due to model loading

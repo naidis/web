@@ -1,0 +1,42 @@
+---
+title: Introduction
+description: Naidis - Raycast for Obsidian
+---
+
+# Welcome to Naidis
+
+**Naidis** is a unified Command Palette for Obsidian. By applying the philosophy of Raycast to Obsidian, you can perform all PKM tasks in a single interface.
+
+## Key Features
+
+- **Web Clipping** - Save web pages to Markdown
+- **YouTube Transcript** - Extract and summarize YouTube transcripts
+- **AI Chat** - AI chat using local LLMs
+- **RSS Reader** - Subscribe to and read RSS feeds
+- **PDF Processing** - PDF parsing, OCR, and table extraction
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  naidis-core (Rust)                              [MIT OSS]  │
+│  • PDF parsing/OCR/table extraction                         │
+│  • YouTube transcript extraction                            │
+│  • RSS feed parsing                                         │
+│  • JSON-RPC API                                             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              │ IPC (JSON-RPC over stdio)
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│  naidis-app (TypeScript)                         [Paid $29] │
+│  • Raycast-style Command Palette UI                        │
+│  • Obsidian Vault integration                               │
+│  • Settings and auto-updates                                │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Getting Started
+
+- [PRD (Product Requirements Document)](/docs/prd)
+- [Design System](/docs/design-system)

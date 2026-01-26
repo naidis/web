@@ -1,0 +1,60 @@
+---
+title: Web Clip
+description: Save web pages as Markdown
+---
+
+# Web Clip Module
+
+Converts web pages into clean Markdown and saves them to your Obsidian vault.
+
+## Usage
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "Web Clip"
+3. Paste the URL
+4. Click "Clip"
+5. Check preview and click "Save to Vault"
+
+## Features
+
+### Readability Extraction
+
+Uses the Mozilla Readability algorithm to extract only the main content cleanly. Unnecessary elements like ads and navigation are removed.
+
+### Metadata Extraction
+
+- Title
+- Author
+- Published Date
+- Site Name
+- Excerpt
+
+### Image Handling
+
+Optionally include or exclude images.
+
+## Note Template
+
+You can customize the Web Clip template in Settings:
+
+```text
+# {{title}}
+
+- **Source**: [{{url}}]({{url}})
+- **Author**: {{author}}
+- **Date**: {{date}}
+
+---
+
+{{content}}
+```
+
+## Supported Sites
+
+Most websites are supported. Content extraction may be limited for some JavaScript-based SPAs.
+
+## Tips
+
+- Clipping is limited for pages that require login
+- Long articles may take longer to process
+- The default save folder can be changed in Settings

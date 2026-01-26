@@ -1,0 +1,58 @@
+---
+title: RSS Reader
+description: Subscribe to RSS feeds and save as notes
+---
+
+# RSS Reader Module
+
+Subscribe to RSS/Atom feeds and save articles as Obsidian notes.
+
+## Usage
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "RSS"
+3. Enter the RSS feed URL
+4. Click "Fetch"
+5. Click an article to save it
+
+## Features
+
+### Feed Parsing
+
+Supports major feed formats like RSS 2.0 and Atom.
+
+### Article List
+
+Displays the latest article list from the feed. Default is 20 items.
+
+### Individual Saving
+
+Clicking an article saves it as a note. The entire content is converted to Markdown.
+
+## Note Template
+
+You can customize the RSS template in Settings:
+
+```text
+# {{title}}
+
+- **Feed**: {{feed}}
+- **Link**: [{{link}}]({{link}})
+- **Published**: {{published}}
+
+---
+
+{{content}}
+```
+
+## Supported Feed Formats
+
+- RSS 2.0
+- RSS 1.0
+- Atom 1.0
+
+## Tips
+
+- Feed URLs are usually found at `/feed`, `/rss`, or `/atom.xml` on blogs
+- Some sites may provide only excerpts instead of full content
+- If the feed URL is not clear, look for `<link rel="alternate" type="application/rss+xml">` in the site source

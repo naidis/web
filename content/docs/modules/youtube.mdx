@@ -1,0 +1,63 @@
+---
+title: YouTube
+description: YouTube video transcript extraction and note generation
+---
+
+# YouTube Module
+
+Extracts transcripts from YouTube videos, detects chapters with AI, and generates notes.
+
+## Usage
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "YouTube"
+3. Paste the YouTube URL
+4. Click "Extract"
+
+## Features
+
+### Transcript Extraction
+
+Uses `yt-dlp` to extract YouTube transcripts. Supports both auto-generated and manual transcripts.
+
+### AI Chapter Detection
+
+Uses LLM to detect topic changes in the transcript and automatically generate chapters.
+
+### Timestamps
+
+Extracted transcripts are displayed with timestamps. Click to jump to that specific time.
+
+## Note Template
+
+You can customize the YouTube template in Settings:
+
+```text
+# {{title}}
+
+- **Channel**: {{channel}}
+- **Duration**: {{duration}}
+- **URL**: {{url}}
+
+## Chapters
+{{#chapters}}
+- [{{time}}] {{title}}
+{{/chapters}}
+
+## Transcript
+{{transcript}}
+```
+
+## Requirements
+
+- `yt-dlp` installation required
+
+```bash
+brew install yt-dlp
+```
+
+## Tips
+
+- Long videos may take some time for chapter detection
+- Extraction is not possible for videos without transcripts
+- If multi-language transcripts are available, the default language is selected

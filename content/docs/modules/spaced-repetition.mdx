@@ -1,0 +1,153 @@
+---
+title: Spaced Repetition
+description: Readwise-style daily review for highlight retention
+---
+
+# Spaced Repetition
+
+Review your highlights daily with scientifically-proven spaced repetition algorithms. Never forget what you read.
+
+## Overview
+
+Naidis includes a complete spaced repetition system inspired by Readwise's Daily Review. It supports:
+
+- **Highlight Review**: Revisit your book/article highlights at optimal intervals
+- **Mastery Cards**: Create Q&A and cloze deletion flashcards from highlights
+- **Streak Tracking**: Build a daily review habit with streak stats
+- **Two Algorithms**: Choose between SM-2 (SuperMemo) and Half-life Decay
+
+## Quick Start
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "Daily Review" or press `Cmd+Shift+R`
+3. Review your highlights and mastery cards
+4. Build your streak!
+
+## Daily Review Flow
+
+### Highlight Actions
+
+When reviewing a highlight, you can:
+
+| Action | Shortcut | Effect |
+|--------|----------|--------|
+| **Keep** | `Enter` | Mark as reviewed, schedule next review |
+| **Discard** | `D` | Remove from future reviews |
+| **Master** | `M` | Create a Q&A or Cloze card |
+| **Add Note** | `N` | Add a personal note |
+| **Add Tag** | `T` | Tag the highlight |
+
+### Mastery Card Actions
+
+For Q&A and Cloze cards:
+
+| Action | Shortcut | Effect |
+|--------|----------|--------|
+| **Show Answer** | `Space` | Reveal the answer |
+| **Soon** | `1` | Review again soon (forgot) |
+| **Later** | `2` | Review later (remembered with effort) |
+| **Someday** | `3` | Review much later (easy recall) |
+| **Never** | `0` | Remove from reviews |
+
+### Navigation
+
+- `←` Previous item
+- `→` Next item
+
+## Algorithms
+
+### SM-2 (SuperMemo)
+
+The classic spaced repetition algorithm used by Anki and SuperMemo. Proven effective over decades.
+
+- Predictable intervals: 1 day → 6 days → 15 days → etc.
+- Adjusts based on recall quality
+- Best for: Consistent, predictable review schedules
+
+### Half-life Decay
+
+A newer, adaptive algorithm that models memory as exponential decay.
+
+- Calculates recall probability in real-time
+- Adapts faster to individual learning patterns
+- Best for: Adaptive scheduling, variable study patterns
+
+## Mastery Cards
+
+Turn highlights into flashcards for deeper retention.
+
+### Q&A Cards
+
+Create question-answer pairs from your highlights:
+
+```
+Highlight: "The mitochondria is the powerhouse of the cell"
+
+Question: What is the powerhouse of the cell?
+Answer: The mitochondria
+```
+
+### Cloze Deletions
+
+Hide parts of text to test recall:
+
+```
+Original: The mitochondria is the powerhouse of the cell
+Cloze: The {{mitochondria}} is the powerhouse of the cell
+
+During review: The [...] is the powerhouse of the cell
+```
+
+Use `{{...}}` syntax to mark hidden text.
+
+## Statistics
+
+View your review statistics:
+
+- **Current Streak**: Consecutive days reviewed
+- **Longest Streak**: Your personal best
+- **Today/Week/Total**: Review counts
+- **Streak Recovery**: Miss a day? You can recover within 24 hours
+
+Access stats via Command Palette → "View Statistics"
+
+## Settings
+
+Configure in Settings → Review tab:
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Algorithm | SM-2 | Choose SM-2 or Half-life Decay |
+| Highlights per day | 15 | Max highlights to review daily |
+| Mastery cards per day | 10 | Max cards to review daily |
+
+## Frequency Tuning
+
+Adjust review frequency per document or source type:
+
+- **Documents**: Review some books more/less frequently
+- **Source Types**: Prioritize articles over tweets, etc.
+
+Frequency multiplier: 0.5x (half as often) to 2.0x (twice as often)
+
+## Comparison with Readwise
+
+| Feature | Readwise | Naidis |
+|---------|----------|--------|
+| Daily Review | ✅ | ✅ |
+| Highlight Surfacing | ✅ | ✅ |
+| Mastery Cards (Q&A) | ✅ | ✅ |
+| Cloze Deletions | ✅ | ✅ |
+| Streak Tracking | ✅ | ✅ |
+| Algorithm Choice | ❌ (proprietary) | ✅ (SM-2 or Half-life) |
+| Frequency Tuning | ✅ | ✅ |
+| Local-first | ❌ (cloud) | ✅ |
+| One-time Payment | ❌ ($9.99/mo) | ✅ ($29) |
+
+## Tips
+
+- **Start small**: Begin with 10-15 highlights per day
+- **Be consistent**: Short daily sessions beat long irregular ones
+- **Use Mastery for key facts**: Not every highlight needs a flashcard
+- **Discard liberally**: Remove highlights that no longer matter
+- **Check stats weekly**: Celebrate your streak!

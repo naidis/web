@@ -1,0 +1,102 @@
+---
+title: Audio Transcription
+description: Transcribe audio files to text using Whisper AI
+---
+
+# Audio Transcription
+
+Convert audio recordings to text using OpenAI's Whisper model, running entirely on your local machine.
+
+## Features
+
+- **Local Processing**: All transcription happens on your device - no cloud uploads
+- **Multiple Languages**: Supports 99+ languages
+- **Timestamps**: Get word-level timing for each segment
+- **Translation**: Optionally translate to English
+
+## Usage
+
+1. Open Command Palette → "Audio: Transcribe"
+2. Select your audio file (WAV format recommended)
+3. Wait for transcription (progress shown)
+4. Save as a new note or insert into current note
+
+## Supported Formats
+
+| Format | Support |
+|--------|---------|
+| WAV | ✅ Native |
+| MP3 | Requires ffmpeg |
+| M4A | Requires ffmpeg |
+| OGG | Requires ffmpeg |
+| FLAC | Requires ffmpeg |
+
+For best results, use WAV format. Other formats require ffmpeg to be installed.
+
+## Model Selection
+
+Whisper comes in different model sizes:
+
+| Model | Size | Speed | Accuracy |
+|-------|------|-------|----------|
+| tiny | 75 MB | Fastest | Good |
+| base | 142 MB | Fast | Better |
+| small | 466 MB | Medium | Great |
+| medium | 1.5 GB | Slow | Excellent |
+| large | 3 GB | Slowest | Best |
+
+Default is `base.en` (English-optimized base model).
+
+## First-Time Setup
+
+On first use, Naidis will download the Whisper model:
+
+1. Settings → AI → Download Whisper Model
+2. Select model size (base recommended)
+3. Wait for download (~150 MB for base)
+4. Model is cached locally for future use
+
+## Use Cases
+
+### Meeting Notes
+Record your meetings and transcribe them to searchable notes.
+
+### Voice Memos
+Quick voice notes become markdown files.
+
+### Podcast Notes
+Transcribe podcast episodes for reference.
+
+### Interview Transcription
+Convert interview recordings to text.
+
+## Output Format
+
+Transcriptions include:
+
+```markdown
+# Audio Transcription
+
+**Duration**: 5:32
+**Language**: English
+
+## Transcript
+
+[00:00] Hello and welcome to today's meeting.
+[00:05] We have several items on the agenda.
+[00:12] First, let's discuss the project timeline.
+...
+```
+
+## Tips
+
+- **Quiet environment**: Better audio = better transcription
+- **WAV format**: Use WAV for fastest processing
+- **Shorter clips**: Split long recordings for better results
+- **English model**: Use `.en` models for English-only content (faster)
+
+## Requirements
+
+- macOS, Windows, or Linux
+- ~500 MB disk space for model
+- 4+ GB RAM recommended

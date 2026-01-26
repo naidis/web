@@ -1,0 +1,86 @@
+---
+title: PDF Processing
+description: PDF text/table extraction and OCR
+---
+
+# PDF Processing Module
+
+Extracts text and tables from PDF documents and performs OCR if necessary.
+
+## Usage
+
+1. Open the Command Palette with `Cmd+Shift+P`
+2. Select "PDF"
+3. Enter the PDF file path
+4. Click "Extract"
+5. Check results and click "Save to Vault"
+
+## Features
+
+### Text Extraction
+
+Extracts text from PDFs while maintaining layout as much as possible.
+
+### Table Extraction
+
+Detects tables within the PDF and converts them to Markdown tables.
+
+### OCR (Optional)
+
+Uses Tesseract OCR to extract text from scanned PDFs.
+
+### Metadata Extraction
+
+- Title
+- Author
+- Subject
+- Creator App
+
+## Note Template
+
+You can customize the PDF template in Settings:
+
+```text
+# {{title}}
+
+- **Source**: {{path}}
+- **Pages**: {{pages}}
+- **Author**: {{author}}
+
+---
+
+{{content}}
+
+{{#tables}}
+## Table {{index}}
+{{content}}
+{{/tables}}
+```
+
+## OCR Setup
+
+To use OCR, you must install Tesseract:
+
+```bash
+# macOS
+brew install tesseract tesseract-lang
+
+# Ubuntu/Debian
+sudo apt install tesseract-ocr tesseract-ocr-kor
+
+# Windows
+# Download from https://github.com/UB-Mannheim/tesseract/wiki
+```
+
+Supported Languages:
+- English (eng)
+- Korean (kor)
+- Japanese (jpn)
+- Simplified Chinese (chi_sim)
+
+## Tips
+
+- Better scan quality results in higher OCR accuracy
+- Table extraction accuracy may decrease for complex tables
+- Large PDF files may take longer to process
+- Password-protected PDFs are not supported

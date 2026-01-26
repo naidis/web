@@ -1,0 +1,267 @@
+---
+title: API Reference
+description: naidis-core JSON-RPC API documentation
+---
+
+# API Reference
+
+naidis-core uses JSON-RPC 2.0 over stdio.
+
+## Request Format
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "method.name",
+  "params": {}
+}
+```
+
+## Response Format
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {}
+}
+```
+
+## Methods
+
+### health.check
+
+Check server status
+
+**Request:**
+```json
+{"jsonrpc": "2.0", "id": 1, "method": "health.check", "params": {}}
+```
+
+**Response:**
+```json
+{"jsonrpc": "2.0", "id": 1, "result": "ok"}
+```
+
+---
+
+### youtube.extract
+
+Extract YouTube video info and transcripts
+
+**Params:**
+- `url` (string, required): YouTube URL
+- `include_transcript` (boolean): Whether to include transcript
+- `include_chapters` (boolean): Whether to include chapters
+- `language` (string, optional): Transcript language
+
+**Response:**
+```json
+{
+  "title": "Video Title",
+  "channel": "Channel Name",
+  "duration": 600,
+  "thumbnail": "https://...",
+  "transcript": [
+    {"start": 0.0, "duration": 5.0, "text": "Hello"}
+  ],
+  "chapters": [
+    {"start": 0.0, "title": "Introduction"}
+  ],
+  "description": "..."
+}
+```
+
+---
+
+### webclip.extract
+
+Extract web page content
+
+**Params:**
+- `url` (string, required): Web page URL
+- `include_images` (boolean): Whether to include images
+
+**Response:**
+```json
+{
+  "title": "Article Title",
+  "content": "Markdown content...",
+  "author": "Author Name",
+  "published_date": "2026-01-15",
+  "excerpt": "Brief summary",
+  "site_name": "Site Name",
+  "url": "https://..."
+}
+```
+
+---
+
+### rss.fetch
+
+Fetch RSS feed
+
+**Params:**
+- `url` (string, required): RSS feed URL
+- `limit` (number, optional): Maximum number of items
+
+**Response:**
+```json
+{
+  "title": "Feed Title",
+  "description": "Feed description",
+  "link": "https://...",
+  "items": [
+    {
+      "title": "Article Title",
+      "link": "https://...",
+      "content": "Full content",
+      "published": "2026-01-15",
+      "author": "Author"
+    }
+  ]
+}
+```
+
+---
+
+### pdf.extract
+
+Process PDF document
+
+**Params:**
+- `path` (string, required): PDF file path
+- `extract_tables` (boolean): Whether to extract tables
+- `ocr` (boolean): Whether to use OCR
+
+**Response:**
+```json
+{
+  "text": "Extracted text...",
+  "pages": 10,
+  "tables": ["| Col1 | Col2 |..."],
+  "metadata": {
+    "title": "Document Title",
+    "author": "Author",
+    "subject": "Subject",
+    "creator": "Creator App"
+  }
+}
+```
+
+---
+
+### ai.index
+
+Index notes
+
+**Params:**
+- `notes` (array): Array of notes
+  - `id` (string): Note ID
+  - `title` (string): Note title
+  - `content` (string): Note content
+  - `path` (string): Note path
+
+**Response:**
+```json
+{
+  "indexed_count": 100,
+  "success": true
+}
+```
+
+---
+
+### ai.search
+
+Semantic search
+
+**Params:**
+- `query` (string, required): Search query
+- `limit` (number, optional): Maximum number of results
+
+**Response:**
+```json
+{
+  "results": [
+    {
+      "id": "note-id",
+      "title": "Note Title",
+      "path": "path/to/note.md",
+      "score": 0.95,
+      "snippet": "Relevant excerpt..."
+    }
+  ]
+}
+```
+
+---
+
+### ai.rag
+
+RAG query (Search + Answer generation)
+
+**Params:**
+- `query` (string, required): Question
+- `limit` (number, optional): Number of notes to include in context
+- `system_prompt` (string, optional): System prompt
+
+**Response:**
+```json
+{
+  "response": "AI generated answer...",
+  "sources": [
+    {
+      "id": "path/to/note.md",
+      "score": 0.92,
+      "content": "Relevant snippet",
+      "metadata": {"title": "Note Title", "path": "..."}
+    }
+  ]
+}
+```
+
+---
+
+### wallabag.sync
+
+Sync Wallabag
+
+**Params:**
+- `config`:
+  - `url` (string): Wallabag URL
+  - `client_id` (string)
+  - `client_secret` (string)
+  - `username` (string)
+  - `password` (string)
+- `limit` (number, optional)
+
+---
+
+### hoarder.sync
+
+Sync Hoarder
+
+**Params:**
+- `config`:
+  - `url` (string): Hoarder URL
+  - `api_key` (string)
+- `limit` (number, optional)
+
+---
+
+### readwise.sync
+
+Sync Readwise
+
+**Params:**
+- `config`:
+  - `api_key` (string)
+- `updated_after` (string, optional): ISO 8601 date
+
+## CLI Usage Example
+
+```bash
+echo '{"jsonrpc":"2.0","id":1,"method":"health.check","params":{}}' | ./naidis-core
+```

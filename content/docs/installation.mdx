@@ -1,0 +1,99 @@
+---
+title: Installation
+description: Naidis Installation Guide
+---
+
+# Installation
+
+Installing Naidis is simple. You need both the Obsidian plugin and the Core binary.
+
+## Requirements
+
+- **Obsidian**: v1.4.0 or higher
+- **OS**: macOS, Windows, Linux
+- **Optional**:
+  - `yt-dlp`: For YouTube transcript extraction
+  - `tesseract`: For PDF OCR
+  - `ollama`: For local AI
+
+## Step 1: Purchase and Download Plugin
+
+1. [Purchase from Gumroad](https://gumroad.com/naidis) ($29 one-time)
+2. Unzip the downloaded `naidis.zip`
+3. Copy the `naidis` folder to the `.obsidian/plugins/` folder of your Obsidian vault
+
+## Step 2: Activate Plugin
+
+1. Obsidian Settings → Community plugins
+2. Find "Naidis" and activate it
+3. The plugin will automatically download the Core binary
+
+## Step 3: First Run
+
+Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux) to open the Command Palette.
+
+## Installing Optional Dependencies
+
+### yt-dlp (YouTube transcript extraction)
+
+```bash
+# macOS
+brew install yt-dlp
+
+# Windows
+winget install yt-dlp
+
+# Linux
+pip install yt-dlp
+```
+
+### Tesseract (PDF OCR)
+
+```bash
+# macOS
+brew install tesseract tesseract-lang
+
+# Windows
+# Download from https://github.com/UB-Mannheim/tesseract/wiki
+
+# Linux (Ubuntu/Debian)
+sudo apt install tesseract-ocr tesseract-ocr-kor tesseract-ocr-jpn
+```
+
+### Ollama (Local AI)
+
+```bash
+# macOS/Linux
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Download model
+ollama pull llama3.2
+```
+
+## Troubleshooting
+
+### Core binary does not start
+
+Press the "Check for Updates" button in Settings → Naidis to re-download Core.
+
+### YouTube transcript extraction failed
+
+Check if `yt-dlp` is installed:
+
+```bash
+yt-dlp --version
+```
+
+### AI features not working
+
+Check if Ollama is running:
+
+```bash
+ollama list
+```
+
+## Next Steps
+
+- [How to use YouTube module](/docs/modules/youtube)
+- [How to use AI Chat](/docs/modules/ai-chat)
+- [Configuration Guide](/docs/configuration)

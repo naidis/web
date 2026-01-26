@@ -1,0 +1,848 @@
+---
+title: Design System
+description: Naidis Design System - Raycast-inspired Design for Obsidian
+---
+
+# Naidis Design System
+## Raycast-inspired Design for Obsidian
+
+**Version**: 1.0  
+**Date**: 2026-01-17
+
+---
+
+## 1. Design Philosophy
+
+| Principle | Description | Raycast Reference |
+|------|------|-------------|
+| **Minimal** | Remove unnecessary elements, focus on content | Solid background, thin borders |
+| **Monochrome+** | B&W based + single accent color | Use only purple accent |
+| **Spatial** | Clear hierarchy, sufficient spacing | 8px grid system |
+| **Fluid** | Smooth transitions, natural movement | 150-200ms ease-out |
+| **Adaptive** | Auto-adapts to Obsidian themes | CSS variable based |
+
+---
+
+## 2. Color System
+
+### 2.1 Obsidian CSS Variable Mapping
+
+Wrap native CSS variables for auto-harmony with Obsidian themes:
+
+```css
+:root {
+  /* ========== Background ========== */
+  --ul-bg-primary: var(--background-primary);
+  --ul-bg-secondary: var(--background-secondary);
+  --ul-bg-tertiary: var(--background-secondary-alt);
+  --ul-bg-hover: var(--background-modifier-hover);
+  --ul-bg-active: var(--background-modifier-active-hover);
+
+  /* ========== Text ========== */
+  --ul-text-primary: var(--text-normal);
+  --ul-text-secondary: var(--text-muted);
+  --ul-text-faint: var(--text-faint);
+  --ul-text-on-accent: var(--text-on-accent);
+
+  /* ========== Accent ========== */
+  --ul-accent: var(--interactive-accent);
+  --ul-accent-hover: var(--interactive-accent-hover);
+  --ul-accent-rgb: var(--interactive-accent-rgb, 124, 58, 237);
+
+  /* ========== Border ========== */
+  --ul-border: var(--background-modifier-border);
+  --ul-border-hover: var(--background-modifier-border-hover);
+  --ul-border-focus: var(--interactive-accent);
+
+  /* ========== Semantic Colors ========== */
+  --ul-success: #34D399;
+  --ul-success-bg: rgba(52, 211, 153, 0.1);
+  --ul-warning: #FBBF24;
+  --ul-warning-bg: rgba(251, 191, 36, 0.1);
+  --ul-error: #F87171;
+  --ul-error-bg: rgba(248, 113, 113, 0.1);
+  --ul-info: #60A5FA;
+  --ul-info-bg: rgba(96, 165, 250, 0.1);
+}
+```
+
+### 2.2 Color Usage Guide
+
+| Usage | Variable | Example |
+|------|------|------|
+| Main Background | `--ul-bg-primary` | Command Palette background |
+| Secondary Background | `--ul-bg-secondary` | Input field, card |
+| Hover State | `--ul-bg-hover` | List item hover |
+| Selected State | `--ul-bg-active` | Currently selected item |
+| Primary Text | `--ul-text-primary` | Title, body |
+| Secondary Text | `--ul-text-secondary` | Description, label |
+| Faint Text | `--ul-text-faint` | Shortcut, hint |
+| Highlight | `--ul-accent` | Button, link, focus ring |
+
+---
+
+## 3. Typography
+
+### 3.1 Font Family
+
+```css
+:root {
+  /* Inherit Obsidian fonts */
+  --ul-font-family: var(--font-interface);
+  --ul-font-mono: var(--font-monospace);
+}
+```
+
+### 3.2 Size Scale
+
+```css
+:root {
+  --ul-text-xs: 11px;
+  --ul-text-sm: 12px;
+  --ul-text-base: 14px;
+  --ul-text-lg: 16px;
+  --ul-text-xl: 18px;
+  --ul-text-2xl: 24px;
+  --ul-text-3xl: 30px;
+}
+```
+
+### 3.3 Font Weight
+
+```css
+:root {
+  --ul-font-normal: 400;
+  --ul-font-medium: 500;
+  --ul-font-semibold: 600;
+  --ul-font-bold: 700;
+}
+```
+
+### 3.4 Line Height
+
+```css
+:root {
+  --ul-leading-tight: 1.25;
+  --ul-leading-normal: 1.5;
+  --ul-leading-relaxed: 1.75;
+}
+```
+
+### 3.5 Typography Application
+
+| Element | Size | Weight | Color | Line Height |
+|------|--------|--------|------|-------------|
+| Command Palette Input | xl (18px) | medium | primary | tight |
+| List Item Title | base (14px) | medium | primary | tight |
+| List Item Description | sm (12px) | normal | secondary | normal |
+| Shortcut Display | xs (11px) | normal | faint | tight |
+| Section Header | sm (12px) | semibold | secondary | tight |
+| Modal Title | lg (16px) | semibold | primary | tight |
+| Button Text | sm (12px) | medium | varies | tight |
+
+---
+
+## 4. Spacing
+
+### 4.1 8px Grid System
+
+```css
+:root {
+  --ul-space-0: 0px;
+  --ul-space-0.5: 2px;
+  --ul-space-1: 4px;
+  --ul-space-2: 8px;
+  --ul-space-3: 12px;
+  --ul-space-4: 16px;
+  --ul-space-5: 20px;
+  --ul-space-6: 24px;
+  --ul-space-8: 32px;
+  --ul-space-10: 40px;
+  --ul-space-12: 48px;
+  --ul-space-16: 64px;
+}
+```
+
+### 4.2 Spacing Usage Guide
+
+| Context | Value | Variable |
+|----------|-----|------|
+| List Item Padding (Vertical) | 12px | `--ul-space-3` |
+| List Item Padding (Horizontal) | 16px | `--ul-space-4` |
+| Icon-Text Gap | 12px | `--ul-space-3` |
+| Section Gap | 8px | `--ul-space-2` |
+| Modal Internal Padding | 16px | `--ul-space-4` |
+| Button Internal Padding | 8px 16px | `--ul-space-2` `--ul-space-4` |
+| Input Internal Padding | 12px 16px | `--ul-space-3` `--ul-space-4` |
+| Card Gap | 16px | `--ul-space-4` |
+
+---
+
+## 5. Border & Rounding
+
+### 5.1 Border Radius
+
+```css
+:root {
+  --ul-radius-sm: 4px;
+  --ul-radius-md: 6px;
+  --ul-radius-lg: 8px;
+  --ul-radius-xl: 12px;
+  --ul-radius-2xl: 16px;
+  --ul-radius-full: 9999px;
+}
+```
+
+### 5.2 Usage Guide
+
+| Element | Radius |
+|------|--------|
+| Command Palette Modal | xl (12px) |
+| List Item | lg (8px) |
+| Button | md (6px) |
+| Input Field | lg (8px) |
+| Tag/Badge | full |
+| Avatar/Icon Background | lg (8px) |
+| Tooltip | md (6px) |
+
+### 5.3 Border Width
+
+```css
+:root {
+  --ul-border-width: 1px;
+  --ul-border-width-2: 2px;
+}
+```
+
+---
+
+## 6. Shadows
+
+```css
+:root {
+  /* Subtle shadow */
+  --ul-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  /* Basic shadow */
+  --ul-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+  /* Modal/Popover shadow */
+  --ul-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Command Palette shadow */
+  --ul-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Enhanced shadow for Dark Mode */
+  --ul-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+```
+
+---
+
+## 7. Components
+
+### 7.1 Command Palette
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   🔍  Type a command...                              ⌘K    │
+│                                                             │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   COMMANDS                                                  │
+│                                                             │
+│   ┌─────────────────────────────────────────────────────┐  │
+│   │  🎥  YouTube Import                          ⌘ Y    │  │
+│   └─────────────────────────────────────────────────────┘  │
+│   ┌─────────────────────────────────────────────────────┐  │
+│   │  💬  AI Chat                                 ⌘ I    │  │  ← selected
+│   └─────────────────────────────────────────────────────┘  │
+│   │  📄  PDF Process                             ⌘ P    │  │
+│   │  📰  RSS Check                               ⌘ R    │  │
+│   │  📎  Web Clip                                ⌘ C    │  │
+│   │                                                             │
+│   RECENT                                                    │
+│                                                             │
+│   │  🎥  React Tutorial Video                           │  │
+│   │  📄  Q4 Report.pdf                                  │  │
+│   │                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Specs**:
+```css
+.command-palette {
+  width: 680px;
+  max-width: 90vw;
+  max-height: 70vh;
+  background: var(--ul-bg-primary);
+  border: 1px solid var(--ul-border);
+  border-radius: var(--ul-radius-xl);
+  box-shadow: var(--ul-shadow-2xl);
+  overflow: hidden;
+}
+
+.command-palette-input {
+  padding: var(--ul-space-4);
+  border-bottom: 1px solid var(--ul-border);
+}
+
+.command-palette-list {
+  padding: var(--ul-space-2);
+  overflow-y: auto;
+}
+```
+
+### 7.2 List Item
+
+```css
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: var(--ul-space-3) var(--ul-space-4);
+  border-radius: var(--ul-radius-lg);
+  gap: var(--ul-space-3);
+  cursor: pointer;
+  transition: background var(--ul-transition-fast);
+}
+
+.list-item:hover {
+  background: var(--ul-bg-hover);
+}
+
+.list-item.selected {
+  background: var(--ul-bg-active);
+}
+
+.list-item.selected::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 60%;
+  background: var(--ul-accent);
+  border-radius: var(--ul-radius-full);
+}
+
+.list-item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.list-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-item-title {
+  font-size: var(--ul-text-base);
+  font-weight: var(--ul-font-medium);
+  color: var(--ul-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-description {
+  font-size: var(--ul-text-sm);
+  color: var(--ul-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-item-shortcut {
+  font-size: var(--ul-text-xs);
+  color: var(--ul-text-faint);
+  font-family: var(--ul-font-mono);
+}
+```
+
+### 7.3 Button
+
+```css
+/* Primary Button */
+.btn-primary {
+  background: var(--ul-accent);
+  color: var(--ul-text-on-accent);
+  border: none;
+  padding: var(--ul-space-2) var(--ul-space-4);
+  border-radius: var(--ul-radius-md);
+  font-size: var(--ul-text-sm);
+  font-weight: var(--ul-font-medium);
+  cursor: pointer;
+  transition: background var(--ul-transition-fast);
+}
+
+.btn-primary:hover {
+  background: var(--ul-accent-hover);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: transparent;
+  color: var(--ul-text-primary);
+  border: 1px solid var(--ul-border);
+  padding: var(--ul-space-2) var(--ul-space-4);
+  border-radius: var(--ul-radius-md);
+  font-size: var(--ul-text-sm);
+  font-weight: var(--ul-font-medium);
+  cursor: pointer;
+  transition: all var(--ul-transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--ul-bg-hover);
+  border-color: var(--ul-border-hover);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--ul-text-secondary);
+  border: none;
+  padding: var(--ul-space-2) var(--ul-space-4);
+  border-radius: var(--ul-radius-md);
+  font-size: var(--ul-text-sm);
+  font-weight: var(--ul-font-medium);
+  cursor: pointer;
+  transition: all var(--ul-transition-fast);
+}
+
+.btn-ghost:hover {
+  background: var(--ul-bg-hover);
+  color: var(--ul-text-primary);
+}
+
+/* Icon Button */
+.btn-icon {
+  background: transparent;
+  border: none;
+  padding: var(--ul-space-2);
+  border-radius: var(--ul-radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--ul-transition-fast);
+}
+
+.btn-icon:hover {
+  background: var(--ul-bg-hover);
+}
+```
+
+### 7.4 Input Field
+
+```css
+.input {
+  width: 100%;
+  background: var(--ul-bg-secondary);
+  border: 1px solid var(--ul-border);
+  border-radius: var(--ul-radius-lg);
+  padding: var(--ul-space-3) var(--ul-space-4);
+  font-size: var(--ul-text-base);
+  font-family: var(--ul-font-family);
+  color: var(--ul-text-primary);
+  transition: all var(--ul-transition-fast);
+}
+
+.input::placeholder {
+  color: var(--ul-text-faint);
+}
+
+.input:hover {
+  border-color: var(--ul-border-hover);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--ul-accent);
+  box-shadow: 0 0 0 3px rgba(var(--ul-accent-rgb), 0.1);
+}
+
+/* Large Input (Command Palette) */
+.input-lg {
+  font-size: var(--ul-text-xl);
+  padding: var(--ul-space-4);
+}
+```
+
+### 7.5 Tag/Badge
+
+```css
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--ul-space-0.5) var(--ul-space-2);
+  border-radius: var(--ul-radius-full);
+  font-size: var(--ul-text-xs);
+  font-weight: var(--ul-font-medium);
+}
+
+.tag-default {
+  background: var(--ul-bg-secondary);
+  color: var(--ul-text-secondary);
+}
+
+.tag-accent {
+  background: rgba(var(--ul-accent-rgb), 0.1);
+  color: var(--ul-accent);
+}
+
+.tag-success {
+  background: var(--ul-success-bg);
+  color: var(--ul-success);
+}
+
+.tag-warning {
+  background: var(--ul-warning-bg);
+  color: var(--ul-warning);
+}
+
+.tag-error {
+  background: var(--ul-error-bg);
+  color: var(--ul-error);
+}
+```
+
+### 7.6 Section Header
+
+```css
+.section-header {
+  font-size: var(--ul-text-sm);
+  font-weight: var(--ul-font-semibold);
+  color: var(--ul-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--ul-space-2) var(--ul-space-4);
+}
+```
+
+### 7.7 Shortcut Display
+
+```css
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--ul-space-1);
+  background: var(--ul-bg-secondary);
+  border: 1px solid var(--ul-border);
+  border-radius: var(--ul-radius-sm);
+  font-size: var(--ul-text-xs);
+  font-family: var(--ul-font-mono);
+  color: var(--ul-text-faint);
+}
+
+.kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ul-space-1);
+}
+```
+
+---
+
+## 8. Icons
+
+### 8.1 Icon System
+
+| Property | Value |
+|------|-----|
+| Library | [Lucide Icons](https://lucide.dev/) |
+| Base Style | Outline (stroke-width: 2) |
+| Base Size | 18px |
+| Color | Inherit currentColor |
+
+### 8.2 Icon Sizes
+
+```css
+:root {
+  --ul-icon-sm: 14px;
+  --ul-icon-md: 18px;
+  --ul-icon-lg: 20px;
+  --ul-icon-xl: 24px;
+}
+```
+
+### 8.3 Module Icons
+
+| Module | Icon Name | Color |
+|------|------------|------|
+| YouTube | `youtube` / `play-circle` | `#FF0000` |
+| PDF | `file-text` | `#EF4444` |
+| AI Chat | `sparkles` / `message-circle` | `var(--ul-accent)` |
+| RSS | `rss` | `#F97316` |
+| Web Clip | `clipboard` / `link` | `var(--ul-accent)` |
+| Settings | `settings` | `var(--ul-text-secondary)` |
+| Search | `search` | `var(--ul-text-secondary)` |
+| External | `external-link` | `var(--ul-text-faint)` |
+
+---
+
+## 9. Animations
+
+### 9.1 Transition Timing
+
+```css
+:root {
+  --ul-transition-fast: 100ms ease-out;
+  --ul-transition-base: 150ms ease-out;
+  --ul-transition-slow: 200ms ease-out;
+  --ul-transition-slower: 300ms ease-out;
+}
+```
+
+### 9.2 Easing Functions
+
+```css
+:root {
+  --ul-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ul-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ul-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ul-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+```
+
+### 9.3 Keyframe Animations
+
+```css
+/* Opening Modal */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Closing Modal */
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+}
+
+/* List Item Appearance */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pulse (Loading) */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Slide-in (Sidepanel) */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Backdrop Fade */
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+```
+
+### 9.4 Animation Application
+
+| Element | Animation | Duration | Easing |
+|------|-----------|----------|------|
+| Open Command Palette | modal-in | 150ms | ease-out |
+| Close Command Palette | modal-out | 100ms | ease-in |
+| List Item Appearance | fade-in-up | 100ms | ease-out |
+| List Stagger Delay | - | 30ms per item | - |
+| Hover State Transition | background | 100ms | ease-out |
+| Focus Ring | box-shadow | 150ms | ease-out |
+| Backdrop | backdrop-in | 150ms | ease-out |
+| Side Panel | slide-in-right | 200ms | ease-out |
+
+---
+
+## 10. Dark/Light Mode
+
+### 10.1 Auto Adaptation
+
+Uses Obsidian CSS variables, so it **auto-adapts** when the theme changes:
+
+```css
+/* Obsidian applies .theme-dark or .theme-light classes to body */
+/* CSS variables update automatically */
+/* No separate logic required */
+```
+
+### 10.2 Manual Override (If necessary)
+
+```css
+/* Dark Mode only */
+.theme-dark .ul-component {
+  --ul-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode only */
+.theme-light .ul-component {
+  --ul-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+```
+
+---
+
+## 11. Responsive Design
+
+### 11.1 Breakpoints
+
+```css
+:root {
+  --ul-breakpoint-sm: 480px;
+  --ul-breakpoint-md: 768px;
+  --ul-breakpoint-lg: 1024px;
+  --ul-breakpoint-xl: 1280px;
+}
+```
+
+### 11.2 Command Palette Responsiveness
+
+| Viewport | Width | Position |
+|--------|------|------|
+| Desktop (&gt;768px) | 680px fixed | Top-center |
+| Tablet (480-768px) | 90vw | Top-center |
+| Mobile (&lt;480px) | calc(100vw - 32px) | Top-center |
+
+```css
+.command-palette {
+  width: 680px;
+  max-width: calc(100vw - 32px);
+}
+
+@media (max-width: 768px) {
+  .command-palette {
+    width: 90vw;
+  }
+}
+```
+
+---
+
+## 12. Accessibility
+
+### 12.1 Focus Indication
+
+```css
+/* All interactive elements */
+*:focus-visible {
+  outline: 2px solid var(--ul-accent);
+  outline-offset: 2px;
+}
+
+/* Input fields use box-shadow */
+.input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--ul-accent-rgb), 0.2);
+}
+```
+
+### 12.2 Keyboard Navigation
+
+| Key | Action |
+|----|------|
+| `↑` / `↓` | Move list item |
+| `Enter` | Select/Execute |
+| `Escape` | Close/Cancel |
+| `Tab` | Next focus area |
+| `⌘K` / `Ctrl+K` | Open Command Palette |
+
+### 12.3 ARIA Attributes
+
+```html
+<!-- Command Palette -->
+<div role="dialog" aria-modal="true" aria-label="Command Palette">
+  <input type="text" role="combobox" aria-autocomplete="list" aria-expanded="true">
+  <ul role="listbox">
+    <li role="option" aria-selected="true">...</li>
+    <li role="option" aria-selected="false">...</li>
+  </ul>
+</div>
+```
+
+### 12.4 Color Contrast
+
+All text meets WCAG 2.1 AA standards:
+- Normal text: 4.5:1 or higher
+- Large text (18px+): 3:1 or higher
+
+---
+
+## 13. Implementation Checklist
+
+### Phase 1: Basic System
+- [ ] CSS Variable definition
+- [ ] Typography styles
+- [ ] Button components
+- [ ] Input field components
+
+### Phase 2: Command Palette
+- [ ] Modal container
+- [ ] Search input
+- [ ] List items
+- [ ] Section headers
+- [ ] Shortcut display
+- [ ] Animations
+
+### Phase 3: Module UI
+- [ ] YouTube module UI
+- [ ] PDF module UI
+- [ ] AI Chat module UI
+- [ ] RSS module UI
+- [ ] Settings UI
+
+### Phase 4: Polishing
+- [ ] Responsive testing
+- [ ] Dark/Light mode testing
+- [ ] Accessibility audit
+- [ ] Performance optimization
+
+---
+
+*This document will be updated as development progresses.*
