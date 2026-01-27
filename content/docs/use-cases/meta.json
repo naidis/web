@@ -1,4 +1,12 @@
 {
   "title": "Use Cases",
-  "pages": ["youtube-to-obsidian", "research-workflow", "kindle-highlights", "ai-second-brain"]
+  "pages": [
+    "youtube-to-obsidian",
+    "research-workflow",
+    "kindle-highlights",
+    "ai-second-brain",
+    "best-obsidian-ai-plugin",
+    "obsidian-pkm-guide",
+    "local-first-notes"
+  ]
 }
