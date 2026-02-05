@@ -115,7 +115,7 @@ function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button size="sm" className="bg-violet-600 hover:bg-violet-500" asChild>
-            <a href="https://github.com/naidis/naidis/releases/latest" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
               Download
             </a>
           </Button>
@@ -184,7 +184,7 @@ function PricingSection() {
                 ))}
               </ul>
               <Button variant="outline" className="mt-8 w-full" asChild>
-                <a href="https://github.com/naidis/naidis/releases/latest" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
                   Download Free
                 </a>
               </Button>

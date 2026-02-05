@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Naidis',
+  title: 'Naidis - Raycast for Obsidian | Web Clipper, AI Chat, RSS for Obsidian',
   description: 'The ultimate Obsidian plugin - Unified PKM Workstation',
 };
 
