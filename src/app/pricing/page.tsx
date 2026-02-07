@@ -1,12 +1,13 @@
 'use client';
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
 
 const freeFeatures = [
   { name: 'YouTube transcript extraction', included: true },
@@ -54,76 +55,6 @@ const faqs = [
     answer: 'Yes, we offer a 14-day refund policy for annual subscriptions. Monthly subscriptions can be canceled anytime.',
   },
 ];
-
-function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = stored === 'dark' || (!stored && prefersDark) ? 'dark' : 'light';
-    setTheme(initial);
-    document.documentElement.classList.toggle('dark', initial === 'dark');
-  }, []);
-
-  const toggle = () => {
-    const next = theme === 'light' ? 'dark' : 'light';
-    setTheme(next);
-    localStorage.setItem('theme', next);
-    document.documentElement.classList.toggle('dark', next === 'dark');
-  };
-
-  return (
-    <button
-      onClick={toggle}
-      className="p-2 rounded-md hover:bg-muted transition-colors"
-      aria-label="Toggle theme"
-    >
-      {theme === 'light' ? (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      ) : (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-      )}
-    </button>
-  );
-}
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl flex h-14 items-center justify-between px-6">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 font-semibold text-lg">
-            <span className="text-violet-600">◆</span> Naidis
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </Link>
-            <Link href="/pricing" className="text-foreground font-medium">
-              Pricing
-            </Link>
-            <Link href="/docs" className="text-muted-foreground hover:text-foreground transition-colors">
-              Docs
-            </Link>
-          </nav>
-        </div>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button size="sm" className="bg-violet-600 hover:bg-violet-500" asChild>
-            <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
-              Download
-            </a>
-          </Button>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 function PricingSection() {
   const [isYearly, setIsYearly] = useState(true);
@@ -314,29 +245,6 @@ function FAQ() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t px-6 py-12">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2 font-semibold">
-            <span className="text-violet-600">◆</span> Naidis
-          </div>
-          <nav className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link href="/docs" className="hover:text-foreground transition-colors">
-              Documentation
-            </Link>
-            <Link href="/pricing" className="hover:text-foreground transition-colors">
-              Pricing
-            </Link>
-          </nav>
-          <p className="text-sm text-muted-foreground">© 2026 Naidis</p>
-        </div>
-      </div>
-    </footer>
   );
 }
 
