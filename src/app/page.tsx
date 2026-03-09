@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { InstallBlock } from '@/components/install-block';
 
 const features = [
   {
@@ -122,15 +123,8 @@ function Hero() {
           Stop juggling 10 plugins. Web Clipper, YouTube Transcript, AI Chat, RSS Reader, Spaced Repetition —
           all in one unified command palette. 100% local, zero cloud, high-performance Rust backend.
         </p>
-        <div className="mt-10 max-w-lg mx-auto">
-          <div className="rounded-lg border bg-card p-4 text-left">
-            <p className="text-xs text-muted-foreground mb-2">Quick Install (macOS / Linux)</p>
-            <div className="flex items-center gap-2">
-              <code className="flex-1 text-sm font-mono bg-muted px-3 py-2 rounded select-all overflow-x-auto">
-                curl -fsSL https://raw.githubusercontent.com/naidis/release/main/install.sh | bash
-              </code>
-            </div>
-          </div>
+        <div className="mt-10 max-w-xl mx-auto">
+          <InstallBlock />
           <div className="mt-4 flex items-center justify-center gap-4 text-sm">
             <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
               Manual download
