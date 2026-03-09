@@ -1,10 +1,10 @@
 ---
 title: Product Requirements Document
-description: Naidis PRD - Raycast for Obsidian, Unified PKM Workstation
+description: Naidis PRD - Ultimate Plugin for Obsidian, Unified PKM Workstation
 ---
 
 # Obsidian Unified Launcher PRD
-## "Raycast for Obsidian" - Unified PKM Workstation
+## "Ultimate Plugin for Obsidian" - Unified PKM Workstation
 
 **Version**: 2.0  
 **Date**: 2026-01-17  
@@ -27,7 +27,7 @@ The Obsidian plugin ecosystem is **fragmented**:
 
 ### 1.2 Solution
 
-A product that provides a **Raycast-style unified Command Palette**:
+A product that provides a **unified Command Palette**:
 - `Cmd+Shift+P` → Perform all PKM tasks in a single interface.
 - Built-in key features: Web Clip, YouTube Transcript, AI Chat, RSS, etc.
 - Integration with external services (Wallabag, Hoarder/Karakeep, Readwise).
@@ -53,7 +53,7 @@ A product that provides a **Raycast-style unified Command Palette**:
 ┌─────────────────────────────────────────────────────────────┐
 │  unified-launcher-obsidian (TypeScript)         [Paid $29]  │
 │  ─────────────────────────────────────────────────────────  │
-│  • Raycast-style Command Palette UI                        │
+│  • Unified Command Palette UI                              │
 │  • Polished UI for each module                              │
 │  • Obsidian Vault integration                               │
 │  • Settings screen                                          │
@@ -185,9 +185,9 @@ A product that provides a **Raycast-style unified Command Palette**:
 
 ## 3. Product Design
 
-### 3.1 Core Concept: "Raycast for Obsidian"
+### 3.1 Core Concept: "Ultimate Plugin for Obsidian"
 
-Perform all tasks with one `Cmd+Shift+P`, just like **Raycast**:
+Perform all tasks with one `Cmd+Shift+P` in a unified interface:
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -293,7 +293,7 @@ Deployment Options:
 | Point | Description |
 |--------|------|
 | **Backend alone is useless** | Can be used via CLI, but no UX |
-| **Polished UX** | Raycast-level UI requires significant effort |
+| **Polished UX** | Premium-level UI requires significant effort |
 | **Support & Updates** | Bug fixes, new features, Obsidian version compatibility |
 | **Build Barrier** | Backend can be built, but it's meaningless without UI |
 
@@ -304,7 +304,7 @@ To create a free UI:
 1. Understand Rust backend protocol
 2. Implement JSON-RPC client
 3. Learn Obsidian plugin API
-4. Implement Raycast-level UX
+4. Implement polished UX
 5. Continuous maintenance
 
 → Motivation to do this "for free"? Almost none.
@@ -428,7 +428,7 @@ To create a free UI:
 | **Paid Major Updates** | Separate purchase for major versions like v2.0, v3.0 (discounts) |
 | **Team License** | B2B revenue source |
 | **Sponsorship** | GitHub Sponsors, corporate support |
-| **Expansion Platforms** | Raycast extension, VSCode extension, etc. |
+| **Expansion Platforms** | VSCode extension, CLI tools, etc. |
 
 ### 5.4 Revenue Forecast (Realistic)
 
@@ -485,13 +485,13 @@ Revenue: $17,400~$43,500
 | Week | Milestone | Details |
 |------|----------|------|
 | 15-16 | Plugin Foundation | Obsidian API integration, IPC bridge, settings system |
-| 17-18 | Command Palette | Raycast-style UI, module switching |
+| 17-18 | Command Palette | Unified Command Palette UI, module switching |
 | 19-20 | Module UI | Completion of UI for YouTube/PDF/AI/RSS modules |
 
 **Phase 3 Goals**:
 - Launch of paid plugin
 - License system setup
-- Payment integration (Gumroad/Paddle)
+- Payment integration (Stripe)
 
 ### Phase 4: Polish & Launch (4 weeks)
 
@@ -554,7 +554,7 @@ Revenue: $17,400~$43,500
 1. **Open Source Engine**: Technical trust, community verification
 2. **Rust Performance**: Breaking JS plugin limits
 3. **One-time Purchase**: Resolving subscription fatigue
-4. **Unified UX**: Raycast-level integrated experience
+4. **Unified UX**: Premium integrated experience
 5. **Local First**: Privacy, offline usage
 
 ---

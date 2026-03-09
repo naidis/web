@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -91,6 +89,7 @@ const freeFeatures = [
 ];
 
 const proFeatures = [
+  'Everything in Free',
   'Unlimited AI & RAG queries',
   'Unlimited spaced repetition cards',
   'Unlimited RSS feeds',
@@ -116,24 +115,32 @@ function Hero() {
             <span className="text-blue-500">●</span> Local-First
           </Badge>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-          Raycast for Obsidian
+        <h1 className="text-fluid-hero font-bold tracking-tight bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
+          Ultimate Plugin for Obsidian
         </h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Stop juggling 10 plugins. Web Clipper, YouTube Transcript, AI Chat, RSS Reader, Spaced Repetition — 
+          Stop juggling 10 plugins. Web Clipper, YouTube Transcript, AI Chat, RSS Reader, Spaced Repetition —
           all in one unified command palette. 100% local, zero cloud, high-performance Rust backend.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-violet-600 hover:bg-violet-500 w-full sm:w-auto" asChild>
-            <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
-              Download Free
+        <div className="mt-10 max-w-lg mx-auto">
+          <div className="rounded-lg border bg-card p-4 text-left">
+            <p className="text-xs text-muted-foreground mb-2">Quick Install (macOS / Linux)</p>
+            <div className="flex items-center gap-2">
+              <code className="flex-1 text-sm font-mono bg-muted px-3 py-2 rounded select-all overflow-x-auto">
+                curl -fsSL https://raw.githubusercontent.com/naidis/release/main/install.sh | bash
+              </code>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-center gap-4 text-sm">
+            <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              Manual download
             </a>
-          </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
-            <a href="/docs">
-              Read the Docs
+            <span className="text-muted-foreground">·</span>
+            <a href="/docs" className="text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4">
+              Documentation
             </a>
-          </Button>
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground text-center">Compatible with Obsidian 1.0+</p>
         </div>
       </div>
 
@@ -151,9 +158,8 @@ function Hero() {
               {['📎 Clip URL', '🎥 YouTube', '💬 AI Chat', '🧠 Daily Review', '📰 RSS'].map((item, i) => (
                 <div
                   key={item}
-                  className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm ${
-                    i === 0 ? 'bg-violet-100 dark:bg-violet-900/50' : 'hover:bg-muted'
-                  }`}
+                  className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm ${i === 0 ? 'bg-violet-100 dark:bg-violet-900/50' : 'hover:bg-muted'
+                    }`}
                 >
                   <span>{item.split(' ')[0]}</span>
                   <span>{item.split(' ').slice(1).join(' ')}</span>
@@ -170,17 +176,17 @@ function Hero() {
 
 function Features() {
   return (
-    <section id="features" className="px-6 py-24 bg-muted/30">
+    <section id="features" className="px-6 py-20 bg-muted/30">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-fluid-title font-bold tracking-tight">
             Everything you need in one place
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Replace multiple plugins with a single, unified experience
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <Card key={feature.title} className="group hover:border-violet-300 dark:hover:border-violet-700 transition-colors">
               <CardHeader className="pb-2">
@@ -212,7 +218,7 @@ function Pricing() {
     <section id="pricing" className="px-6 py-24">
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-fluid-title font-bold tracking-tight">
             Simple pricing
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -240,8 +246,10 @@ function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="mt-8 w-full">
-                Download Free
+              <Button variant="outline" className="mt-8 w-full" asChild>
+                <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
+                  Install Free
+                </a>
               </Button>
             </CardContent>
           </Card>
@@ -254,11 +262,11 @@ function Pricing() {
               <CardTitle className="text-xl">Pro</CardTitle>
               <CardDescription>For power users</CardDescription>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-bold">$3.99</span>
-                <span className="text-muted-foreground">/month</span>
+                <span className="text-4xl font-bold">$39</span>
+                <span className="text-muted-foreground">/year</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
-                or $39/year (save 18%)
+                2 months free vs monthly · or $3.99/mo
               </p>
             </CardHeader>
             <CardContent>
@@ -288,7 +296,7 @@ function Pricing() {
 const faqItems = [
   {
     question: 'What is Naidis?',
-    answer: 'A unified Command Palette for Obsidian that combines Web Clipping, YouTube Transcripts, AI Chat, RSS Reader, and more into a single Raycast-style interface.',
+    answer: 'The ultimate plugin for Obsidian that combines Web Clipping, YouTube Transcripts, AI Chat, RSS Reader, and more into a single unified interface.',
   },
   {
     question: 'How much does it cost?',
@@ -332,20 +340,20 @@ function SocialProof() {
     <section className="px-6 py-8 border-b">
       <div className="mx-auto max-w-4xl flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
-          <span>⭐</span>
-          <span>500+ GitHub Stars</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span>📥</span>
-          <span>1,000+ Downloads</span>
-        </div>
-        <div className="flex items-center gap-2">
           <span className="text-green-500">●</span>
           <span>Open Source Core</span>
         </div>
         <div className="flex items-center gap-2">
           <span>🔒</span>
           <span>100% Local Processing</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span>⚡</span>
+          <span>High-Performance Rust Backend</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span>🤖</span>
+          <span>Local AI via Ollama</span>
         </div>
       </div>
     </section>
@@ -381,10 +389,10 @@ function Testimonials() {
 
 function FAQ() {
   return (
-    <section id="faq" className="px-6 py-24">
+    <section id="faq" className="px-6 py-20">
       <div className="mx-auto max-w-3xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-fluid-title font-bold tracking-tight">
             Frequently Asked Questions
           </h2>
         </div>
@@ -423,27 +431,25 @@ const comparisonData = [
 
 function Comparison() {
   return (
-    <section id="comparison" className="px-6 py-24 bg-muted/30">
+    <section id="comparison" className="px-6 py-20 bg-muted/30">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-fluid-title font-bold tracking-tight">
             Why Naidis?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Compare the alternatives
           </p>
         </div>
-        
-        {/* Mobile swipe indicator */}
+
         <p className="md:hidden text-center text-sm text-muted-foreground mb-4 flex items-center justify-center gap-2">
           <span>←</span>
           <span>Swipe to see all competitors</span>
           <span>→</span>
         </p>
-        
-        {/* Table wrapper with fade gradient */}
+
         <div className="relative">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto scroll-smooth [-webkit-overflow-scrolling:touch]">
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="border-b">
@@ -491,13 +497,19 @@ function Comparison() {
               </tbody>
             </table>
           </div>
-          {/* Right fade gradient indicator (mobile only) */}
           <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-muted/30 to-transparent pointer-events-none md:hidden" />
         </div>
-        
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          Save <span className="font-semibold text-green-500">$81/year</span> compared to Readwise Reader
-        </p>
+
+        <div className="mt-8 text-center space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Save <span className="font-semibold text-green-500">$81/year</span> compared to Readwise Reader
+          </p>
+          <Button className="bg-violet-600 hover:bg-violet-500" asChild>
+            <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
+              Start saving now
+            </a>
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -531,7 +543,7 @@ function UseCases() {
     <section id="use-cases" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-fluid-title font-bold tracking-tight">
             Built for how you work
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -558,12 +570,12 @@ function UseCases() {
 
 function Privacy() {
   return (
-    <section id="privacy" className="px-6 py-24 bg-gradient-to-b from-background to-muted/30">
+    <section id="privacy" className="px-6 py-16 bg-gradient-to-b from-background to-muted/30">
       <div className="mx-auto max-w-4xl text-center">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-6">
           <span className="text-3xl">🔒</span>
         </div>
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="text-fluid-title font-bold tracking-tight">
           Your Data Never Leaves Your Device
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -600,7 +612,7 @@ function Newsletter() {
   return (
     <section className="px-6 py-24 bg-violet-50 dark:bg-violet-950/20">
       <div className="mx-auto max-w-xl text-center">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <h2 className="text-fluid-subtitle font-bold tracking-tight">
           Stay in the loop
         </h2>
         <p className="mt-4 text-muted-foreground">
@@ -625,21 +637,67 @@ function Newsletter() {
   );
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'Naidis',
+      description: 'Ultimate Plugin for Obsidian — Unified PKM Workstation with Web Clipper, YouTube Transcript, AI Chat, RSS Reader, and Spaced Repetition.',
+      applicationCategory: 'ProductivityApplication',
+      operatingSystem: 'Windows, macOS, Linux',
+      offers: [
+        {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+          name: 'Free',
+        },
+        {
+          '@type': 'Offer',
+          price: '3.99',
+          priceCurrency: 'USD',
+          name: 'Pro',
+          billingIncrement: 'P1M',
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Naidis',
+      url: 'https://naidis.dev',
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <SocialProof />
         <Testimonials />
         <Features />
         <Privacy />
-        <UseCases />
         <Comparison />
         <Pricing />
         <FAQ />
-        <Newsletter />
       </main>
       <Footer />
     </div>

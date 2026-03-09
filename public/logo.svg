@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="naidis-grad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="50%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
+    </linearGradient>
+  </defs>
+  <path d="M24 4 L44 24 L24 44 L4 24 Z" fill="url(#naidis-grad)"/>
+  <path d="M24 4 L44 24 L24 24 Z" fill="white" fill-opacity="0.12"/>
+</svg>

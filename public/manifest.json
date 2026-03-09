@@ -1,0 +1,22 @@
+{
+  "name": "Naidis - Ultimate Plugin for Obsidian",
+  "short_name": "Naidis",
+  "description": "Unified PKM Workstation — Web Clipper, YouTube Transcript, AI Chat, RSS Reader, and Spaced Repetition for Obsidian",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

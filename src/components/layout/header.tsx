@@ -70,11 +70,11 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm pt-[env(safe-area-inset-top,0px)]">
       <div className="mx-auto max-w-6xl flex h-14 items-center justify-between px-6">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2 font-semibold text-lg">
-            <span className="text-violet-600">◆</span> Naidis
+            <img src="/logo.svg" alt="" width={24} height={24} className="h-6 w-6" aria-hidden="true" /> Naidis
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             {navItems.map((item) => (
@@ -95,7 +95,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button size="sm" className="hidden md:inline-flex bg-violet-600 hover:bg-violet-500" asChild>
-            <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
               Download
             </a>
           </Button>
@@ -124,7 +124,7 @@ export function Header() {
                   </Link>
                 ))}
                 <Button className="mt-4 bg-violet-600 hover:bg-violet-500" asChild>
-                  <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
                     Download
                   </a>
                 </Button>
