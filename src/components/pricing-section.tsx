@@ -105,7 +105,7 @@ export function PricingSection() {
                 ))}
               </ul>
               <Button variant="outline" className="mt-8 w-full" asChild>
-                <a href="https://github.com/naidis/core/releases/latest" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
                   Download Free
                 </a>
               </Button>
