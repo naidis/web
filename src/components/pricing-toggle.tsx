@@ -9,30 +9,31 @@ import { Switch } from '@/components/ui/switch';
 import { getCheckoutUrl, LemonSqueezyProvider } from '@/components/lemon-squeezy';
 
 const freeFeatures = [
-  { name: 'YouTube transcript extraction', included: true },
-  { name: 'Web clipping to markdown', included: true },
-  { name: '5 AI queries per day', included: true },
-  { name: '5 RAG queries per day', included: true },
-  { name: '50 spaced repetition cards', included: true },
-  { name: '3 RSS feed subscriptions', included: true },
-  { name: 'Basic PDF text extraction', included: true },
-  { name: 'Command palette interface', included: true },
+  'YouTube transcript extraction',
+  'Web clipping to markdown',
+  '5 AI queries per day',
+  '5 RAG queries per day',
+  '50 spaced repetition cards',
+  '3 RSS feed subscriptions',
+  'Basic PDF text extraction',
+  'Command palette interface',
 ];
 
 const proFeatures = [
-  { name: 'Unlimited AI & RAG queries', included: true },
-  { name: 'Unlimited spaced repetition cards', included: true },
-  { name: 'Unlimited RSS feeds', included: true },
-  { name: 'PDF OCR & table extraction', included: true },
-  { name: 'YouTube batch processing', included: true },
-  { name: 'Wallabag, Hoarder, Readwise sync', included: true },
-  { name: 'Todoist & Google Calendar sync', included: true },
-  { name: 'Text-to-Speech (TTS)', included: true },
-  { name: 'EPUB & Kindle import', included: true },
-  { name: 'Priority support', included: true },
+  'Everything in Free',
+  'Unlimited AI & RAG queries',
+  'Unlimited spaced repetition cards',
+  'Unlimited RSS feeds',
+  'PDF OCR & table extraction',
+  'YouTube batch processing',
+  'Wallabag, Hoarder, Readwise sync',
+  'Todoist & Google Calendar sync',
+  'Text-to-Speech (TTS)',
+  'EPUB & Kindle import',
+  'Priority support',
 ];
 
-export function PricingSection() {
+export function PricingToggle() {
   const [isYearly, setIsYearly] = useState(true);
 
   const monthlyPrice = 3.99;
@@ -44,18 +45,18 @@ export function PricingSection() {
 
   return (
     <LemonSqueezyProvider>
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-5xl">
+      <section id="pricing" className="px-6 py-24">
+        <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <Badge variant="secondary" className="mb-4">Pricing</Badge>
-            <h1 className="text-fluid-pricing font-bold tracking-tight">
-              Simple, transparent pricing
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Start free, upgrade when you need unlimited access and pro features.
+            <h2 className="text-fluid-title font-bold tracking-tight">
+              Simple pricing
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Start free, upgrade when you need more
             </p>
           </div>
 
+          {/* Monthly/Yearly Toggle */}
           <div className="flex items-center justify-center gap-3 mb-12">
             <span className={`text-sm ${!isYearly ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
               Monthly
@@ -73,7 +74,8 @@ export function PricingSection() {
             )}
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Free Card */}
             <Card className="flex flex-col">
               <CardHeader>
                 <CardTitle className="text-xl">Free</CardTitle>
@@ -87,23 +89,24 @@ export function PricingSection() {
                 <Separator className="mb-6" />
                 <ul className="space-y-3 flex-1">
                   {freeFeatures.map((feature) => (
-                    <li key={feature.name} className="flex items-start gap-3 text-sm">
+                    <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <span className="text-green-500 mt-0.5">✓</span>
-                      <span className="text-muted-foreground">{feature.name}</span>
+                      {feature}
                     </li>
                   ))}
                 </ul>
                 <Button variant="outline" className="mt-8 w-full" asChild>
                   <a href="https://github.com/naidis/release/releases/latest" target="_blank" rel="noopener noreferrer">
-                    Download Free
+                    Install Free
                   </a>
                 </Button>
               </CardContent>
             </Card>
 
+            {/* Pro Card */}
             <Card className="relative border-2 border-violet-500 flex flex-col">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <Badge className="bg-violet-600">Recommended</Badge>
+                <Badge className="bg-violet-600">Popular</Badge>
               </div>
               <CardHeader className="pt-8">
                 <CardTitle className="text-xl">Pro</CardTitle>
@@ -124,14 +127,11 @@ export function PricingSection() {
               </CardHeader>
               <CardContent className="flex-1 flex flex-col">
                 <Separator className="mb-6" />
-                <p className="text-sm text-muted-foreground mb-4">
-                  Everything in Free, plus:
-                </p>
                 <ul className="space-y-3 flex-1">
                   {proFeatures.map((feature) => (
-                    <li key={feature.name} className="flex items-start gap-3 text-sm">
+                    <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
                       <span className="text-violet-500 mt-0.5">✓</span>
-                      <span className="text-muted-foreground">{feature.name}</span>
+                      {feature}
                     </li>
                   ))}
                 </ul>
@@ -140,17 +140,11 @@ export function PricingSection() {
                     Upgrade to Pro
                   </a>
                 </Button>
-                <p className="mt-3 text-center text-xs text-muted-foreground">
-                  14-day money-back guarantee
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  vs Readwise: $9.99/mo = $120/year
                 </p>
               </CardContent>
             </Card>
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground">
-              Compare: Readwise costs $9.99/mo ($120/year). Obsidian Copilot costs $14.99/mo.
-            </p>
           </div>
         </div>
       </section>

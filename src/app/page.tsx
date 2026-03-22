@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { InstallBlock } from '@/components/install-block';
+import { PricingToggle } from '@/components/pricing-toggle';
 
 const features = [
   {
@@ -690,7 +691,7 @@ export default function Home() {
         <Features />
         <Privacy />
         <Comparison />
-        <Pricing />
+        <PricingToggle />
         <FAQ />
       </main>
       <Footer />
