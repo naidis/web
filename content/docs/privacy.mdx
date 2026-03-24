@@ -1,19 +1,19 @@
 ---
 title: Privacy Policy
-description: Naidis Privacy Policy - Your data never leaves your device
+description: Naidis Privacy Policy - Data handling for Obsidian plugin and mobile app
 ---
 
 # Privacy Policy
 
 *Last updated: February 2026*
 
-This Privacy Policy describes how **osb** ("we", "us", "our") handles information in connection with Naidis ("the Software").
+This Privacy Policy describes how **osb** ("we", "us", "our") handles information in connection with Naidis, including the Obsidian plugin and the Naidis mobile app (collectively, "the Software").
 
 ## Our Commitment
 
-**Your data never leaves your device.** This is not marketing — it's our architecture.
+**The Obsidian plugin is local-first.** Your notes, highlights, and personal content never leave your device.
 
-Naidis is built local-first. We cannot access your notes, highlights, or any personal content because we never receive it.
+**The mobile app** syncs clip data (URLs and metadata) through our API to enable cross-device access. No note content is stored on our servers.
 
 ## What We Don't Collect
 
@@ -30,6 +30,19 @@ Naidis is built local-first. We cannot access your notes, highlights, or any per
 
 ## What We Do Collect
 
+### Mobile App Data
+
+When you use the Naidis mobile app, the following data is collected and stored on our servers:
+
+| Data | Purpose | Stored By |
+|------|---------|-----------|
+| Email address | Account authentication (magic link login) | osb (our API server) |
+| Clip URLs | Sync saved clips across devices | osb (our API server) |
+| Clip metadata (title, site name) | Display clip information | osb (our API server) |
+| Authentication tokens | Session management | Device (SecureStore) |
+
+We do **not** store the full content of clipped pages — only the URL and basic metadata.
+
 ### Subscription Data
 
 When you subscribe to Naidis Pro, the following data is processed:
@@ -37,14 +50,14 @@ When you subscribe to Naidis Pro, the following data is processed:
 | Data | Purpose | Processed By |
 |------|---------|--------------|
 | Subscription ID | Verify active subscription | osb (our API server) |
-| Customer ID | Link subscription to account | Stripe |
+| Customer ID | Link subscription to account | Lemon Squeezy / Stripe |
 | Instance ID | Identify your plugin installation | osb (our API server) |
 
-We do **not** collect or store your payment information (credit card, bank details, billing address). All payment data is handled exclusively by Stripe (see below).
+We do **not** collect or store your payment information (credit card, bank details, billing address). All payment data is handled exclusively by our payment processors (see below).
 
-### Payment Processing (Stripe)
+### Payment Processing (Lemon Squeezy / Stripe)
 
-We use **Stripe, Inc.** for payment processing. When you purchase a subscription, Stripe collects and processes:
+We use **Lemon Squeezy** (primary) and **Stripe, Inc.** for payment processing. When you purchase a subscription, the payment processor collects and processes:
 
 | Data | Purpose |
 |------|---------|
@@ -54,17 +67,18 @@ We use **Stripe, Inc.** for payment processing. When you purchase a subscription
 | Billing address | Tax calculation |
 | Transaction history | Invoicing, refunds |
 
-This data is collected and stored by Stripe, not by us. Stripe's handling of your data is governed by [Stripe's Privacy Policy](https://stripe.com/privacy).
+This data is collected and stored by the payment processor, not by us. See [Lemon Squeezy's Privacy Policy](https://www.lemonsqueezy.com/privacy) and [Stripe's Privacy Policy](https://stripe.com/privacy).
 
 ## Data Storage
 
-### Your Content
-All your data is stored:
+### Your Content (Obsidian Plugin)
+All your Obsidian data is stored:
 - In your local Obsidian vault
 - On your file system
 - Under your complete control
 
-We have no servers that store user content. There is no "Naidis cloud."
+### Your Clips (Mobile App)
+Clip URLs and metadata are stored on our API server (Cloudflare Workers) to enable sync. Full page content is not stored.
 
 ### Subscription Verification
 Our API server (hosted on Cloudflare Workers) stores only:
@@ -92,8 +106,9 @@ We act as a bridge. We don't store or intercept this data.
 
 | Service | Purpose | Data Shared |
 |---------|---------|-------------|
-| Stripe | Payment processing | Payment info, email, billing address |
-| Cloudflare | API hosting | Subscription verification requests |
+| Lemon Squeezy | Payment processing | Payment info, email, billing address |
+| Stripe | Payment processing (legacy) | Payment info, email, billing address |
+| Cloudflare | API hosting | Clip sync, subscription verification |
 | YouTube (via yt-dlp) | Transcript extraction | Video URLs (processed locally) |
 
 ### PDF Processing
@@ -148,9 +163,10 @@ Questions about privacy?
 |----------|--------|
 | Do you see my notes? | No |
 | Do you track my usage? | No |
-| Is my data safe? | Yes, it never leaves your device |
-| What do you store? | Subscription ID and status (for verification) |
-| Who processes payments? | Stripe |
+| Is my Obsidian data safe? | Yes, it never leaves your device |
+| What about mobile app data? | Clip URLs and metadata sync to our servers |
+| What do you store? | Subscription info + clip metadata (mobile) |
+| Who processes payments? | Lemon Squeezy / Stripe |
 | Can I verify this? | Yes, naidis-core is open source |
 
 **Local-first isn't just a feature. It's a promise.**

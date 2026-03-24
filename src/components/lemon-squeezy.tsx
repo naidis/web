@@ -7,8 +7,8 @@ import { useEffect } from 'react';
  * Replace with actual URLs from Lemon Squeezy dashboard after creating products.
  */
 export const CHECKOUT_URLS = {
-  monthly: 'https://naidis.lemonsqueezy.com/checkout/buy/TODO_MONTHLY_VARIANT_ID',
-  yearly: 'https://naidis.lemonsqueezy.com/checkout/buy/TODO_YEARLY_VARIANT_ID',
+  monthly: 'https://noveling.lemonsqueezy.com/checkout/buy/2c396d31-415b-43f7-b913-7d12c7187d4c',
+  yearly: 'https://noveling.lemonsqueezy.com/checkout/buy/a12a6cd2-dcdb-4ec2-8c9e-2b7089b7808d',
 } as const;
 
 /**
