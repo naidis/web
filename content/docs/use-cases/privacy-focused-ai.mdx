@@ -1,0 +1,78 @@
+---
+title: "Privacy-Focused AI in Obsidian"
+description: "How to build a 100% private, local-first AI workflow in Obsidian using Naidis and local LLMs."
+---
+
+# Privacy-Focused AI in Obsidian
+
+<img src="/images/docs/privacy-focused-ai-cover.png" alt="Privacy Focused AI" className="w-full rounded-xl my-6 border border-white/10" />
+
+As our personal knowledge management (PKM) systems grow, they contain increasingly sensitive information: private journals, financial plans, unpublished manuscripts, and confidential business documents.
+
+While cloud-based AI tools are powerful, sending your personal brain to external servers poses a fundamental privacy risk. Naidis solves this by bringing AI directly to your local device.
+
+## The Privacy Problem with Cloud AI
+
+When you use ChatGPT, Claude, or most cloud-connected Obsidian AI plugins:
+- Your notes are sent external servers
+- Your queries are logged
+- Your data may be used for model training
+- You lose access when offline
+- Service interruptions break your workflow
+
+## The Naidis Solution: 100% Local AI
+
+Naidis is built from the ground up for a **local-first** architecture. 
+
+### Local LLM Integration
+
+Naidis seamlessly connects with popular local AI runners:
+1. **Ollama**: The easiest way to run models like Llama 3, Mistral, and Phi-3 locally.
+2. **LM Studio**: A powerful GUI for managing and running GGUF models.
+
+When you configure Naidis to use a local endpoint (e.g., `http://localhost:11434`), your text never leaves your computer.
+
+### Local RAG (Retrieval-Augmented Generation)
+
+Naidis doesn't just chat; it uses RAG to search your vault.
+- The **embedding model** (which converts text into searchable vectors) runs locally using `naidis-core`.
+- The **vector database** is stored locally in your Obsidian vault's `.naidis` folder.
+- The **generation step** runs on your local LLM.
+
+## Setting Up Your Private AI 
+
+### Step 1: Install a Local Runner
+We recommend **Ollama** for its simplicity. Download and install it from ollama.com.
+
+### Step 2: Download a Model
+Open your terminal and run:
+```bash
+ollama run llama3
+```
+This downloads and starts the Llama 3 model (an excellent, capable model for note synthesis).
+
+### Step 3: Configure Naidis
+In Obsidian, go to Naidis Settings > AI Models:
+- Under "Provider", select "Ollama / Custom Local Endpoint".
+- Enter `http://localhost:11434/v1` as the base URL.
+- Enter your model name (e.g., `llama3`).
+
+### Step 4: Local Embeddings
+Naidis uses its Rust core to handle embeddings entirely offline. No setup is required for this step—Naidis handles chunking and vector storage natively and transparently.
+
+## Use Cases for Private AI
+
+### 1. Journal Analysis
+Ask AI to summarize your emotional state or track habits across your private daily notes over the last year.
+
+### 2. Confidential Business Strategies
+Upload unreleased product code, internal financial spreadsheets (via PDF extraction), and business strategies. Use Naidis to connect ideas without risking an NDA breach.
+
+### 3. Patient/Client Notes
+For therapists, lawyers, and consultants—organize and search through your client notes while maintaining strict data compliance and confidentiality.
+
+## The Peace of Mind Guarantee
+
+Your second brain should be an extension of your mind, not a data harvest for tech giants. With Naidis and local LLMs, you get the cognitive leverage of AI with the privacy of a physical notebook.
+
+[Get Naidis and take back your privacy →](/docs/installation)
