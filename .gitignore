@@ -4,3 +4,7 @@ out/
 .DS_Store
 *.log
 .env.local
+
+# auto-added: build artifacts & tooling state
+build/
+dist/
